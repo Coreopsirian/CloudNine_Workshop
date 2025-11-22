@@ -18,7 +18,10 @@ jobs:
           aws-region: us-east-1
       
       - name: Sync files to S3
-        run: aws s3 sync . s3://coreopsis-portfolio-2025
+        run: |
+          aws s3 sync . s3://${{ secrets.coreopsis-portfolio-2025 }} \
+
+
       
       - name: Invalidate CloudFront cache
         run: |
